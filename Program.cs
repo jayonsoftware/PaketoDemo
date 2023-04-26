@@ -32,7 +32,7 @@ namespace aspnet
                     .ConfigureWebHostDefaults(webBuilder =>
                     {
                         webBuilder.UseStartup<Startup>();
-                        webBuilder.UseUrls("https://localhost:{portVar");
+                        webBuilder.UseUrls("https://localhost:"+portVar);
                     });
 
             } else

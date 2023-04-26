@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,11 +20,33 @@ namespace aspnet
            
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+        public static IHostBuilder CreateHostBuilder(string[] args)
+        {
+
+            var builder = new WebHostBuilder();
+
+            var portVar = Environment.GetEnvironmentVariable("PORT");
+            if (portVar is { Length: > 0 } && int.TryParse(portVar, out int port))
+            {
+                return Host.CreateDefaultBuilder(args)
+                    .ConfigureWebHostDefaults(webBuilder =>
+                    {
+                        webBuilder.UseStartup<Startup>();
+                        webBuilder.UseUrls("https://localhost:{portVar");
+                    });
+
+            } else
+            {
+
+
+                return Host.CreateDefaultBuilder(args)
+                    .ConfigureWebHostDefaults(webBuilder =>
+                    {
+                        webBuilder.UseStartup<Startup>();
+                        webBuilder.UseUrls("https://localhost");
+                    });
+            }
+
+        }
     }
 }

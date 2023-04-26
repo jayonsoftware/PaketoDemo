@@ -31,7 +31,7 @@ namespace aspnet
                     .ConfigureWebHostDefaults(webBuilder =>
                     {
                         webBuilder.UseStartup<Startup>();
-                        webBuilder.UseUrls("https://*:"+portVar);
+                        webBuilder.UseUrls("https://*:"+portVar, "https://127.0.0.1:" + portVar, "https://0.0.0.0" + portVar);
                     });
 
             } else

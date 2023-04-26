@@ -21,12 +21,16 @@ namespace aspnet
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            
+
             app.UseRouting();
+            
 
             app.UseEndpoints(endpoints =>
             {
@@ -38,6 +42,7 @@ namespace aspnet
     <title>Powered By Paketo Buildpacks</title>
   </head>
   <body>
+<H1>Jay</H1>
 <H1>Jay</H1>
     <img style=""display: block; margin-left: auto; margin-right: auto; width: 50%;"" src=""https://paketo.io/images/paketo-logo-full-color.png""></img>
   </body>

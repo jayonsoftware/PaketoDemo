@@ -33,6 +33,7 @@ namespace aspnet
                         portVar = "5000";
                         webBuilder.UseStartup<Startup>();
                         //webBuilder.UseUrls("https://127.0.0.1:" + portVar);
+                        //webBuilder.UseUrls("https://0.0.0.0");
                     });
 
             } else

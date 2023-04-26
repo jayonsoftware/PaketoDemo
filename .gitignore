@@ -1,0 +1,16 @@
+
+bin/Debug/net6.0/appsettings.Development.json
+
+bin/Debug/net6.0/
+
+obj/Debug/net6.0/
+
+obj/aspnet.csproj.nuget.dgspec.json
+
+obj/aspnet.csproj.nuget.g.props
+
+obj/aspnet.csproj.nuget.g.targets
+
+obj/project.assets.json
+
+obj/project.nuget.cache

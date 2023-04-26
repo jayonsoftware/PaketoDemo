@@ -22,7 +22,6 @@ namespace aspnet
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
-
             var builder = new WebHostBuilder();
 
             var portVar = Environment.GetEnvironmentVariable("PORT");
@@ -32,7 +31,7 @@ namespace aspnet
                     .ConfigureWebHostDefaults(webBuilder =>
                     {
                         webBuilder.UseStartup<Startup>();
-                        webBuilder.UseUrls("https://localhost:"+portVar);
+                        webBuilder.UseUrls("https://0.0.0.0:"+portVar);
                     });
 
             } else

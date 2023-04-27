@@ -32,8 +32,8 @@ namespace aspnet
                     {
               
                         webBuilder.UseStartup<Startup>();
-                        //webBuilder.UseUrls("https://*:" + portVar);
                         //webBuilder.UseUrls("https://0.0.0.0:" + portVar);
+                        webBuilder.UseUrls("https://*:443", "http://*:80");
                     });
 
             } else
@@ -44,7 +44,7 @@ namespace aspnet
                     .ConfigureWebHostDefaults(webBuilder =>
                     {
                         webBuilder.UseStartup<Startup>();
-                        webBuilder.UseUrls("https://*:443");
+                        webBuilder.UseUrls("https://*:443", "http://*:80");
                     });
             }
 

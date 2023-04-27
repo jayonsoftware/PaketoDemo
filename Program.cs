@@ -32,8 +32,8 @@ namespace aspnet
                     {
               
                         webBuilder.UseStartup<Startup>();
-                        webBuilder.UseUrls("https://*:" + portVar);
-                        //webBuilder.UseUrls("https://0.0.0.0");
+                        //webBuilder.UseUrls("https://*:" + portVar);
+                        webBuilder.UseUrls("https://0.0.0.0:" + portVar);
                     });
 
             } else

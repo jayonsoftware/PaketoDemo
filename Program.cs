@@ -30,9 +30,9 @@ namespace aspnet
                 return Host.CreateDefaultBuilder(args)
                     .ConfigureWebHostDefaults(webBuilder =>
                     {
-                        portVar = "5000";
+              
                         webBuilder.UseStartup<Startup>();
-                        //webBuilder.UseUrls("https://127.0.0.1:" + portVar);
+                        webBuilder.UseUrls("https://*:" + portVar);
                         //webBuilder.UseUrls("https://0.0.0.0");
                     });
 

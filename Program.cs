@@ -34,24 +34,23 @@ namespace aspnet
 
             var builder = new WebHostBuilder();
 
-            var portVar = Environment.GetEnvironmentVariable("PORT");
-            if (portVar is { Length: > 0 } && int.TryParse(portVar, out int port))
+            if (Environment.MachineName == "railway")
             {
                 return Host.CreateDefaultBuilder(args)
                     .ConfigureWebHostDefaults(webBuilder =>
-                    {          
-                        webBuilder.UseStartup<Startup>();
-                    });
-
-            } else
-            { 
-
-            return Host.CreateDefaultBuilder(args)
-                    .ConfigureWebHostDefaults(webBuilder =>
                     {
                         webBuilder.UseStartup<Startup>();
-                        webBuilder.UseUrls("https://*:443", "http://*:80");
                     });
+
+            }
+            else
+            {
+                return Host.CreateDefaultBuilder(args)
+                        .ConfigureWebHostDefaults(webBuilder =>
+                        {
+                            webBuilder.UseStartup<Startup>();
+                            webBuilder.UseUrls("https://*:443", "http://*:80");
+                        });
             }
 
         }

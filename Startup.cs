@@ -36,17 +36,22 @@ namespace aspnet
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync(@"<!DOCTYPE html>
-<html>
-  <head>
-    <title>Powered By Paketo Buildpacks</title>
-  </head>
-  <body>
-<H1>Jay</H1>
-  </body>
-</html>");
+                    await GetResponse(context);
                 });
             });
+        }
+
+        public Task GetResponse(HttpContext context)
+        {
+
+            string jsonData = @"{'FirstName':'Jay'}";
+
+            context.Response.ContentType = "application/json";
+            Task response = context.Response.WriteAsync(jsonData);
+            //response.Wait();
+
+            return response;
+
         }
     }
 }

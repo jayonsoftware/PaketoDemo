@@ -44,7 +44,7 @@ namespace aspnet
         public Task GetResponse(HttpContext context)
         {
 
-            string jsonData = @"{'FirstName':'Jay'}";
+            string jsonData = "{\"name\":\"Jay\"}";
 
             context.Response.ContentType = "application/json";
             Task response = context.Response.WriteAsync(jsonData);

@@ -17,39 +17,21 @@ namespace aspnet
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-  // Add console (Sink) as logging target
-  .WriteTo.Console()
-
-    // Set default minimum log level
-    .MinimumLevel.Debug()
-
-    // Create the actual logger
-    .CreateLogger();
+            .WriteTo.Console()
+            .MinimumLevel.Debug()
+            .CreateLogger();
 
             var builder = CreateHostBuilder(args);
-
-          
-
-
-
             builder.UseSerilog(Log.Logger);
-
-
-
             var host = builder.Build();
-
-
             host.Run();
-
- 
 
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
-
-
             Log.Information(Environment.MachineName);
+
             var builder = new WebHostBuilder();
 
             var portVar = Environment.GetEnvironmentVariable("PORT");

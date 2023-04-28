@@ -43,8 +43,6 @@ namespace aspnet
   </head>
   <body>
 <H1>Jay</H1>
-<H1>Jay</H1>
-    <img style=""display: block; margin-left: auto; margin-right: auto; width: 50%;"" src=""https://paketo.io/images/paketo-logo-full-color.png""></img>
   </body>
 </html>");
                 });
